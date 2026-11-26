@@ -3,13 +3,13 @@
 import { useCallback, useMemo } from "react"
 import { StartScreen } from "@/components/assessment/StartScreen"
 import { QuestionStep } from "@/components/assessment/QuestionStep"
-import { LegBreak } from "@/components/assessment/LegBreak"
+import { HalfwayStep } from "@/components/assessment/HalfwayStep"
 import { MatchingStep } from "@/components/assessment/MatchingStep"
 import { CelebrateStep } from "@/components/assessment/CelebrateStep"
 import { ResultStep } from "@/components/assessment/ResultStep"
 import { UnlockStep } from "@/components/assessment/UnlockStep"
 import { isComplete, useAssessment } from "@/hooks/useAssessment"
-import { getHouse } from "@/lib/houses"
+import { getInterest } from "@/lib/interests"
 import { evidenceFor, scoreAnswers } from "@/lib/scoring"
 
 type AssessmentFlowProps = {
@@ -47,14 +47,14 @@ export function AssessmentFlow({ preset, grade }: AssessmentFlowProps) {
         />
       )
     case "break":
-      return <LegBreak nickname={state.nickname} index={state.index} onContinue={() => dispatch({ type: "continue" })} />
+      return <HalfwayStep nickname={state.nickname} onContinue={() => dispatch({ type: "continue" })} />
     case "matching":
       return <MatchingStep nickname={state.nickname} onDone={toCelebrate} hold={preset === "matching"} />
     case "celebrate":
       return (
         <CelebrateStep
           nickname={state.nickname}
-          house={getHouse(ranking[0].id)}
+          interest={getInterest(ranking[0].id)}
           onNext={() => dispatch({ type: "go", screen: "result" })}
         />
       )

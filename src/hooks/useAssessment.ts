@@ -1,14 +1,14 @@
 import { useReducer } from "react"
 import type { Answer, AssessmentAction, AssessmentState, Rating } from "@/types/assessment"
-import { questionScreens, SCREENS_PER_PART, TOTAL_SCREENS } from "@/lib/questions"
-import type { HouseId } from "@/lib/houses"
+import { HALFWAY, questionScreens, TOTAL_SCREENS } from "@/lib/questions"
+import type { InterestId } from "@/lib/interests"
 
-const leaning: HouseId[] = ["creators", "helpers", "explorers"]
+const leaning: InterestId[] = ["artistic", "social", "investigative"]
 
 function sampleAnswer(index: number): Answer {
   const screen = questionScreens[index]
   const ratings = screen.activities.map((activity, slot) => {
-    const rank = leaning.indexOf(activity.house)
+    const rank = leaning.indexOf(activity.interest)
     const base = rank === 0 ? 5 : rank === 1 ? 4 : rank === 2 ? 3 + ((index + slot) % 2) : 1 + ((index + slot) % 3)
     return base as Rating
   })
@@ -84,7 +84,7 @@ function reducer(state: AssessmentState, action: AssessmentAction): AssessmentSt
     case "next": {
       if (!isComplete(state.answers[state.index])) return state
       if (state.index === TOTAL_SCREENS - 1) return { ...state, screen: "matching" }
-      if ((state.index + 1) % SCREENS_PER_PART === 0) return { ...state, screen: "break" }
+      if (state.index + 1 === HALFWAY) return { ...state, screen: "break" }
       return { ...state, index: state.index + 1, bannerOpen: false }
     }
     case "continue":

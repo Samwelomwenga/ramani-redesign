@@ -1,19 +1,19 @@
-import type { HouseId } from "@/lib/houses"
+import type { InterestId } from "@/lib/interests"
 
 export type Rating = 1 | 2 | 3 | 4 | 5
 
 export type Activity = {
   id: string
+  emoji: string
   label: string
-  house: HouseId
-  icon: string
+  interest: InterestId
 }
 
 export type QuestionScreen = {
   index: number
   part: number
+  prompt: string
   activities: Activity[]
-  real: boolean
 }
 
 export type Answer = {

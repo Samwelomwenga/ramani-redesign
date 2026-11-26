@@ -1,7 +1,9 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
-import { ArrowRight, Check, Clock, FloppyDisk, SmileyWink } from "@phosphor-icons/react"
+import { ArrowRight, Check, CloudCheck, Lightbulb, UsersThree } from "@phosphor-icons/react"
 import { FocusHeader } from "@/components/assessment/FocusHeader"
 import { useFocusOnMount } from "@/hooks/useFocusOnMount"
 import { PRICE_KES } from "@/lib/routes"
@@ -14,9 +16,9 @@ const grades = [
 ]
 
 const promises = [
-  { icon: Clock, text: "Four short parts. Take a break between them if you like." },
-  { icon: SmileyWink, text: "No right or wrong answers. Just pick what sounds like you." },
-  { icon: FloppyDisk, text: "Progress saves after every screen." },
+  { icon: Lightbulb, text: "There are no wrong answers. Choose what you enjoy most!" },
+  { icon: CloudCheck, text: "Progress saves automatically, so it is safe to exit anytime." },
+  { icon: UsersThree, text: "Parents or guardians, please help your child choose the best answer." },
 ]
 
 type StartScreenProps = {
@@ -33,14 +35,13 @@ export function StartScreen({ initialName, initialGrade, onBegin }: StartScreenP
   const nameMissing = nickname.trim() === ""
 
   return (
-    <div className="min-h-dvh lg:grid lg:grid-cols-[1fr_1.05fr]">
-      <aside
-        className="relative hidden overflow-hidden text-chalk lg:block"
-        style={{ background: "radial-gradient(40rem 30rem at 80% 10%, rgb(37 99 235 / 0.55), transparent 60%), radial-gradient(36rem 28rem at 0% 100%, rgb(13 148 136 / 0.4), transparent 60%), var(--color-field)" }}
-      >
-        <div className="relative flex h-full items-center p-14">
+    <div className="bg-doodles min-h-dvh lg:grid lg:grid-cols-[1fr_1.05fr]">
+      <aside className="relative hidden overflow-hidden bg-field text-chalk lg:block">
+        <Image src="/hero-student-uniform.jpg" alt="" fill sizes="50vw" className="object-cover object-[50%_30%] opacity-35" priority />
+        <div className="absolute inset-0 bg-gradient-to-t from-field via-field/70 to-field/30" aria-hidden="true" />
+        <div className="relative flex h-full items-end p-14">
           <div className="w-full max-w-[28rem]">
-            <p className="inline-flex rounded-full bg-white/10 px-3 py-1 text-meta font-semibold ring-1 ring-white/15">
+            <p className="inline-flex rounded-full bg-gold px-3 py-1 text-meta font-semibold text-field">
               Most important, start here
             </p>
             <p className="mt-6 text-[2.5rem] font-[650] leading-tight" style={{ fontStretch: "80%" }}>
@@ -48,9 +49,9 @@ export function StartScreen({ initialName, initialGrade, onBegin }: StartScreenP
             </p>
             <p className="mt-4 text-lead text-chalk-soft">
               Backed by science-based career research. Ranked career report emailed to your inbox,
-              plus an optional Values Check that refines your shortlist further.
+              plus an optional values check that refines your shortlist further.
             </p>
-            <div className="mt-8 rounded-[14px] bg-white/[0.08] p-6 ring-1 ring-white/12">
+            <div className="mt-8 rounded-[20px] bg-white/[0.1] p-6 backdrop-blur">
               <p className="font-semibold">
                 The assessment is free. The full report is <span className="text-gold">{PRICE_KES}</span>.
               </p>
@@ -96,11 +97,12 @@ export function StartScreen({ initialName, initialGrade, onBegin }: StartScreenP
                 autoComplete="given-name"
                 aria-describedby={touched && nameMissing ? "nickname-error" : "nickname-hint"}
                 aria-invalid={touched && nameMissing}
-                className="mt-3 h-14 w-full rounded-[10px] border-2 border-rule bg-surface px-4 text-[1.125rem] outline-none transition-colors focus:border-cta aria-[invalid=true]:border-house-helpers"
+                className="mt-3 h-14 w-full rounded-[12px] border-2 border-transparent bg-surface px-4 text-[1.125rem] shadow-raised outline-none transition-colors placeholder:text-ink-muted focus:border-cta aria-[invalid=true]:border-rose"
                 placeholder="e.g. Amani"
+                autoCapitalize="words"
               />
               {touched && nameMissing && (
-                <p id="nickname-error" className="mt-2 text-meta font-semibold text-house-helpers">
+                <p id="nickname-error" className="mt-2 text-meta font-semibold text-rose">
                   Type a name so we know what to call you.
                 </p>
               )}
@@ -114,8 +116,8 @@ export function StartScreen({ initialName, initialGrade, onBegin }: StartScreenP
                   return (
                     <label
                       key={g.id}
-                      className={`relative flex min-h-16 cursor-pointer flex-col justify-center rounded-[10px] border-2 px-4 py-3 transition-colors ${
-                        selected ? "border-field bg-surface shadow-raised" : "border-rule bg-surface hover:border-ink-muted"
+                      className={`relative flex min-h-16 cursor-pointer flex-col justify-center rounded-[12px] border-2 px-4 py-3 transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-gold ${
+                        selected ? "border-field bg-surface shadow-raised" : "border-transparent bg-surface hover:border-cta"
                       }`}
                     >
                       <input
@@ -129,7 +131,7 @@ export function StartScreen({ initialName, initialGrade, onBegin }: StartScreenP
                       <span className="font-semibold">{g.label}</span>
                       <span className="text-meta text-ink-muted">{g.detail}</span>
                       {selected && (
-                        <span className="absolute right-3 top-3 grid size-6 place-items-center rounded-full bg-gold text-ink">
+                        <span className="absolute right-3 top-3 grid size-6 place-items-center rounded-full bg-gold text-field">
                           <Check size={14} weight="bold" aria-hidden="true" />
                         </span>
                       )}
@@ -139,23 +141,27 @@ export function StartScreen({ initialName, initialGrade, onBegin }: StartScreenP
               </div>
               <p className="mt-3 text-meta text-ink-muted">
                 Curriculum: CBC.{" "}
-                <button type="button" className="quiet-link">
+                <Link href="/#start-here" className="quiet-link inline-flex min-h-12 items-center">
                   Change
-                </button>
+                </Link>
               </p>
             </fieldset>
 
-            <ul className="space-y-3 rounded-[14px] bg-cta-wash p-5">
+            <ul className="space-y-3 rounded-[20px] bg-gold-wash p-5">
               {promises.map(({ icon: Icon, text }) => (
                 <li key={text} className="flex gap-3 text-ink-soft">
-                  <Icon size={22} weight="duotone" className="mt-0.5 shrink-0 text-field" aria-hidden="true" />
+                  <Icon size={22} weight="duotone" className="mt-0.5 shrink-0 text-gold-deep" aria-hidden="true" />
                   {text}
                 </li>
               ))}
             </ul>
 
+            <p className="font-semibold lg:hidden">
+              The assessment is free. The full report is <span className="text-gold-deep">{PRICE_KES}</span>.
+            </p>
+
             <button type="submit" className="starter w-full sm:w-auto">
-              Start part 1
+              Begin career assessment
               <ArrowRight size={20} weight="bold" aria-hidden="true" />
             </button>
           </form>
