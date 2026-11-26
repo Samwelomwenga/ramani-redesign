@@ -1,0 +1,75 @@
+{
+  "title": "Choose the new visual world for the Ramani homepage",
+  "question": "The roll assigned Report Day. Keep it, take Kanga, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Report Day",
+      "kicker": "THE ROLL",
+      "lineage": "Kenyan school report books and prize-giving day: cloth covers, coloured card leaves, rubber stamps, teachers' red-pen remarks",
+      "thesis": "Ramani is the report every parent wishes school sent home: what your child is good at, and where it leads.",
+      "palette": ["#1B294B", "#F59E0B", "#FFE3A3", "#2563EB", "#D7263D", "#F4EEDF"],
+      "materials": ["navy cloth-bound report book", "amber and blue card-stock leaves", "rubber stamps and red-pen remarks", "prize-day photos pasted in with corners"],
+      "viewport": "The page opens as a report book on navy cloth: left leaf in amber card carries the headline as the pupil's entry, a handwritten remark gives the 10-minute promise; right leaf is the working grade picker with Take the Test stamped in blue.",
+      "risk": "Report forms are full of ruled boxes; every cell must be a tinted block, never a rule, or it turns into the lined look you rejected.",
+      "raised": [
+        {"from": "challenger-ikeda", "raise": "Four inks on two card stocks, no greys creeping in between."},
+        {"from": "challenger-cutting-bench", "raise": "State is a mark: FREE stamp, red-pen tick for done, PAID seal for unlocked; colour never carries state alone."},
+        {"from": "challenger-tanaka", "raise": "One monumental mark per viewport, the big stamped stat or result; captions stay quiet."},
+        {"from": "challenger-streaming", "raise": "Ramani's own photos run large, pasted in like prize-day photographs, never shrunk to thumbnails."},
+        {"from": "challenger-glaze", "raise": "Ranked things (grades, steps, careers) read top to bottom in one column, rank set by position."},
+        {"from": "challenger-ikebana", "raise": "Each leaf keeps one open area of bare card around its focal mark."}
+      ],
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "navy cloth desk + nav", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "amber leaf: headline + red-pen remark", "x": 0, "y": 1, "w": 6, "h": 7, "accent": true},
+        {"label": "blue leaf: grade picker + stamped CTA", "x": 6, "y": 1, "w": 6, "h": 7},
+        {"label": "stamped stats row", "x": 0, "y": 8, "w": 12, "h": 2}
+      ]}
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Kanga Message",
+      "kicker": "IMPECCABLE'S PICK",
+      "lineage": "East African kanga cloth: bold printed border (pindo), central motif (mji) and a Swahili message panel (jina)",
+      "thesis": "Every section is a kanga: a bold border, one central picture, and a message for the family.",
+      "palette": ["#1B294B", "#F59E0B", "#2563EB", "#C2185B", "#0F766E", "#FFF1D0"],
+      "materials": ["printed cotton", "repeat border patterns", "flat saturated inks"],
+      "viewport": "The hero is one full kanga: patterned navy-and-amber border framing the student photo as the central motif, the headline set in the message panel along the bottom with the CTA inside it.",
+      "risk": "The most familiar 'African design' move; pattern weight can tip into costume and cost data on low-end phones."
+    },
+    {"id": "challenger-ikeda", "kind": "challenger", "catalogId": "ikeda-datamatics", "label": "Datamatics Field", "verdict": "declined",
+     "lineage": "Ryoji Ikeda data installations", "thesis": "Careers as a strobing data field.", "palette": ["#000000", "#FFFFFF"], "materials": ["barcode bars", "monospace numerals"],
+     "viewport": "A barcode wall with one sine curve through it.", "case": "Parents and children have no tie to data art; it hides the offer.", "kept": "Total palette commitment, no in-between greys.", "risk": "Cold, and strobing is wrong for children."},
+    {"id": "challenger-cutting-bench", "kind": "challenger", "catalogId": "operate-a-cutting-bench-select-rail", "label": "Cutting Bench", "verdict": "declined",
+     "lineage": "film editing select rail", "thesis": "Steps as frames on a perforated rail.", "palette": ["#0A0A0A", "#F26B1D", "#FFFFFF"], "materials": ["film grain", "tape flags"],
+     "viewport": "A perforated rail across an orange field.", "case": "No relationship to Kenyan school life; a rail of frames is another kind of line.", "kept": "State shown as marks, not hues.", "risk": "Reads as a film-industry tool."},
+    {"id": "challenger-tanaka", "kind": "challenger", "catalogId": "tanaka-plane-portrait", "label": "Plane Portrait", "verdict": "declined",
+     "lineage": "Ikko Tanaka posters", "thesis": "A student built from five flat planes.", "palette": ["#E2401C", "#26306B", "#E8B931", "#111111"], "materials": ["flat colour planes", "paper ground"],
+     "viewport": "A monumental geometric face beside a quiet caption.", "case": "Elegant but Japanese in voice; weak audience identification and the offer gets small.", "kept": "One monumental figure, whisper-quiet captions.", "risk": "Art-poster distance from a paying parent."},
+    {"id": "challenger-streaming", "kind": "challenger", "catalogId": "pop-culture-shelf-streaming-title-card-wall", "label": "Title Card Wall", "verdict": "declined",
+     "lineage": "streaming catalogue rows", "thesis": "Careers as rows of poster tiles.", "palette": ["#0E1117", "#2563EB", "#FFFFFF"], "materials": ["poster artwork", "dark ground"],
+     "viewport": "Rows of career tiles, the focused one expanding.", "case": "Entertainment framing undercuts a guidance purchase.", "kept": "Real imagery carries the colour, large.", "risk": "Feels like browsing films, not choosing a pathway."},
+    {"id": "challenger-glaze", "kind": "challenger", "catalogId": "clay-ceramics-fracture-glaze-river-shelf", "label": "Glaze Shelf", "verdict": "declined",
+     "lineage": "kiln shelf glaze tests", "thesis": "Results pooling like glaze.", "palette": ["#F4F2EE", "#1F4FA3", "#0B2A6B"], "materials": ["glaze", "kiln shelf"],
+     "viewport": "A row of cups with blue runs.", "case": "No audience tie, no product clarity.", "kept": "Ranked samples read in one gravity-ordered column.", "risk": "Pure metaphor."},
+    {"id": "challenger-ikebana", "kind": "challenger", "catalogId": "growth-metamorphosis-branching-ikebana-ma-arrangement", "label": "Ikebana Alcove", "verdict": "declined",
+     "lineage": "ikebana and ma", "thesis": "One branch in charged emptiness.", "palette": ["#EDE7DC", "#6B5B4B", "#3F5FA8"], "materials": ["plaster", "bronze"],
+     "viewport": "One arrangement in an empty alcove.", "case": "No cultural tie, too quiet to convert, and pale where you asked for colour.", "kept": "One open area around each focal mark.", "risk": "Whitish, the thing you flagged."}
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code"},
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "The category standard",
+    "thesis": "A clean edtech landing page, executed with full craft.",
+    "palette": ["#FFFFFF", "#1B294B", "#2563EB", "#F59E0B"],
+    "materials": ["clean grid", "student photography"],
+    "viewport": "Split hero, stats bar, steps row, testimonials: the arrangement visitors expect.",
+    "risk": "That is close to the current page and what you said looks too much like the original."
+  },
+  "steer": true
+}

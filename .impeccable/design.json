@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T00:00:00Z",
+  "title": "Design System: Ramani",
+  "extensions": {
+    "colorMeta": {
+      "ramani-blue": {"role": "primary", "displayName": "Ramani Blue"},
+      "school-navy": {"role": "primary", "displayName": "School Navy"},
+      "logo-amber": {"role": "secondary", "displayName": "Logo Amber"},
+      "blue-wash": {"role": "neutral", "displayName": "Blue Wash"},
+      "amber-wash": {"role": "secondary", "displayName": "Amber Wash"}
+    },
+    "shadows": [
+      {"name": "raised", "value": "0 1px 2px rgb(15 23 41 / .06), 0 8px 24px -8px rgb(15 23 41 / .14)", "purpose": "Cards on light fields."},
+      {"name": "lifted", "value": "0 2px 4px rgb(15 23 41 / .08), 0 18px 40px -12px rgb(15 23 41 / .28)", "purpose": "Photos, video, start-here card, hover."},
+      {"name": "hero-card", "value": "0 30px 60px -20px rgb(15 23 41 / .5)", "purpose": "Question card on the blue hero."}
+    ],
+    "motion": [
+      {"name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Button and card state transitions."}
+    ],
+    "breakpoints": [{"name": "sm", "value": "640px"}, {"name": "md", "value": "768px"}, {"name": "lg", "value": "1024px"}]
+  },
+  "components": [
+    {"name": "Primary Button", "kind": "button", "refersTo": "button-primary", "description": "The single action, on light fields.",
+     "html": "<button class=\"ds-btn\">Take the Test</button>",
+     "css": ".ds-btn{display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border:0;border-radius:14px;background:#2563eb;color:#fff;font-weight:600;font-size:17px;box-shadow:0 6px 16px -6px rgb(37 99 235/.6);transition:background .16s}.ds-btn:hover{background:#1d4ed8}.ds-btn:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}"},
+    {"name": "Button on blue", "kind": "button", "refersTo": "button-on-blue", "description": "The action on a Ramani Blue field.",
+     "html": "<div style=\"background:#2563eb;padding:24px\"><button class=\"ds-btn-gold\">Take the Test</button></div>",
+     "css": ".ds-btn-gold{min-height:52px;padding:0 24px;border:0;border-radius:14px;background:#f59e0b;color:#0f1729;font-weight:600;font-size:17px;box-shadow:0 10px 24px -10px rgb(15 23 41/.55)}.ds-btn-gold:hover{background:#fbbf24}.ds-btn-gold:focus-visible{outline:3px solid #fff;outline-offset:3px}"},
+    {"name": "Question option", "kind": "custom", "refersTo": "card", "description": "Tap target in the live question card.",
+     "html": "<button class=\"ds-opt\" aria-pressed=\"true\">Running a food stall at the fair</button>",
+     "css": ".ds-opt{display:flex;min-height:56px;width:320px;align-items:center;padding:10px 14px;border:2px solid #dde3ec;border-radius:14px;background:#fff;font-weight:500;text-align:left}.ds-opt:hover{border-color:#5b6780}.ds-opt[aria-pressed=true]{border-color:#2563eb;background:#e3ecff}"},
+    {"name": "Tool card", "kind": "card", "refersTo": "card", "description": "Solid identity-colour card for a free tool.",
+     "html": "<a class=\"ds-tool\" href=\"#\"><strong>Find your senior school</strong><span>Open the finder</span></a>",
+     "css": ".ds-tool{display:flex;flex-direction:column;gap:16px;width:280px;padding:24px;border-radius:20px;background:#2563eb;color:#fff;text-decoration:none;box-shadow:0 8px 24px -8px rgb(15 23 41/.14);transition:transform .3s}.ds-tool:hover{transform:translateY(-4px)}.ds-tool span{align-self:flex-start;padding:8px 16px;border-radius:999px;background:#fff;color:#2563eb;font-weight:600}"},
+    {"name": "Chip", "kind": "chip", "refersTo": "chip", "description": "Small label pill.",
+     "html": "<span class=\"ds-chip\">Popular</span>",
+     "css": ".ds-chip{display:inline-block;padding:4px 12px;border-radius:999px;background:#e3ecff;color:#2563eb;font-size:13px;font-weight:600}"}
+  ],
+  "narrative": {
+    "northStar": "The Bright Classroom Wall",
+    "keyCharacteristics": ["Committed colour fields, one per section, with white cards on top.", "Curved field edges, no dividers or rules.", "Real imagery at large size, never thumbnails.", "Instrument Sans condensed for every heading.", "One action label everywhere: \"Take the Test\"."],
+    "rules": [
+      {"name": "The Field Rule", "body": "Every section owns one solid field colour. A section that is white needs a reason, such as photographs that need neutral space.", "section": "colors"},
+      {"name": "The No-Line Rule", "body": "Never separate regions with rules or dividers. Change the field colour, curve the edge, or use space.", "section": "colors"},
+      {"name": "The No-Kicker Rule", "body": "Headings stand alone. There are no eyebrow labels above them.", "section": "typography"}
+    ]
+  }
+}
