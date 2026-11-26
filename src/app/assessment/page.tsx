@@ -3,7 +3,7 @@ import { AssessmentFlow } from "@/components/assessment/AssessmentFlow"
 import { ScreenPicker } from "@/components/assessment/ScreenPicker"
 
 export const metadata: Metadata = {
-  title: "Career assessment · Ramani",
+  title: "Career assessment",
 }
 
 type AssessmentPageProps = {
