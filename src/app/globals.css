@@ -203,6 +203,28 @@
     color: var(--color-cta);
   }
 
+  .bg-doodles {
+    background-color: #dfe8fb;
+    background-image: url("/patterns/doodles-light.svg");
+    background-size: 280px 280px;
+  }
+
+  .bg-doodles-cream {
+    background-color: var(--color-gold-wash);
+    background-image: url("/patterns/doodles-light.svg");
+    background-size: 280px 280px;
+  }
+
+  .bg-doodles-dark {
+    background-color: var(--color-field);
+    background-image: url("/patterns/doodles-dark.svg");
+    background-size: 280px 280px;
+  }
+
+  .curved-bottom {
+    clip-path: ellipse(140% 100% at 50% 0%);
+  }
+
   .quiet-link {
     display: inline-flex;
     align-items: center;
